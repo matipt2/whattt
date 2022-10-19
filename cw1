@@ -1,0 +1,93 @@
+#include <stdio.h>
+#include <math.h>
+
+
+int loop();
+
+int main() {
+    char operators[6] = {'+', '-', '*', '/', '^', '|'};
+    int length = sizeof(operators) / sizeof(operators[0]);
+    char operacja;
+    printf("Operatory matematyczne: ");
+    for (int i = 0; i < length; i++)
+    {
+        printf("\n%c ", operators[i]);
+    }
+
+    while (1) {
+        if (loop() != 0) return 0;
+    }
+
+}
+
+int loop() {
+    float x, y,result;
+    char operacja;
+    printf("\nWprowadź operacje: ");
+    scanf("%s", &operacja);
+
+
+    if(operacja == '|')
+    {
+        printf("Wprowadż liczbę, którą chcesz spierwiastkowac: ");
+        scanf("%f", &x);
+        result = sqrt(x);
+        printf("%f", result);
+    }
+    else if(operacja == '^')
+    {
+        printf("Wprowadź podstawe potęgi: ");
+        scanf("%f", &x);
+        printf("Wprowadź numer potęgi: ");
+        scanf("%f", &y);
+        result = pow(x, y);
+        printf("Wynik: %f", result);
+    }
+    else if(operacja == '+')
+    {
+        int result1;
+        printf("Wprowadź pierwszą liczbę: ");
+        scanf("%f", &x);
+        printf("Wprowadź druga liczbę: ");
+        scanf("%f", &y);
+        result1 = x+y;
+        printf("Wynik: %d", result1);
+    }
+    else if(operacja=='-')
+    {
+        int result1;
+        printf("Wprowadź pierwszą liczbę: ");
+        scanf("%f", &x);
+        printf("Wprowadź druga liczbę: ");
+        scanf("%f", &y);
+        result1 = x-y;
+        printf("Wynik: %d", result1);
+    }
+
+    else if(operacja=='*')
+    {
+        int result1;
+        printf("Wprowadź pierwszą liczbę: ");
+        scanf("%f", &x);
+        printf("Wprowadź druga liczbę: ");
+        scanf("%f", &y);
+        result1 = x*y;
+        printf("Wynik: %d", result1);
+    }
+    else if(operacja=='/')
+    {
+        printf("Wprowadź pierwszą liczbę: ");
+        scanf("%f", &x);
+        printf("Wprowadź druga liczbę: ");
+        scanf("%f", &y);
+        float result = x/y;
+        printf("Wynik: %f", result);
+    }
+    else if (operacja == 'q') {
+        return -1;
+    }
+    else {
+        printf("Nieprawidlowa operacja\n");
+    }
+    return 0;
+}
